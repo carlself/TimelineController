@@ -14,12 +14,16 @@ public class Test : MonoBehaviour
     {
         sphereHandle = Addressables.LoadAssetAsync<GameObject>("Assets/Example/Sphere.prefab");
         yield return sphereHandle;
-        Instantiate(sphereHandle.Result);
+        GameObject sphere1 = Instantiate(sphereHandle.Result);
+        sphere1.name = "Sphere1";
+        GameObject sphere2 = Instantiate(sphereHandle.Result);
+        sphere2.name = "Sphere2";
 
         timelineHandle = Addressables.LoadAssetAsync<GameObject>("Assets/Example/Timeline/Timeline.prefab");
         yield return timelineHandle;
         var timelineObj = Instantiate(timelineHandle.Result);
         var timelineController = timelineObj.GetComponent<TimelineController>();
+        timelineController.AddRuntimeObject(sphere2);
         timelineController.Play(()=>Debug.Log("TimelineController Complete"));
     }
 
