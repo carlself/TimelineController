@@ -53,7 +53,8 @@ PlayableDirector:
   - key: {fileID: 8315308982580500137, guid: 7d8e7acafb3b2481596b0f46436fbdb7, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 914e4af1b0bd7fa45b1f7af44731924b: {fileID: 0}
 --- !u!114 &6137779284400669199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,4 +72,11 @@ MonoBehaviour:
     id: 119534a3-50e5-4988-9f50-fe129d74fedc
   - trackIndex: 1
     id: af6c944a-a641-4548-b5bb-8a9d5e3dc79a
-  nestedTimelineBindings: []
+  nestedTimelineBindings:
+  - trackIndex: 2
+    clipIndex: 0
+    id: 8bc231ab-4a87-40dc-a5fe-06ba104afd52
+    nestedTimelineTrackBindings:
+    - trackIndex: 0
+      id: 5b689b2a-6535-428c-ad32-6924ec5a25a0
+    timelineAsset: {fileID: 11400000, guid: 87a28edf0bd570c48a1ab16bc6abd2db, type: 2}

@@ -9,7 +9,7 @@ public class TimelineReference : MonoBehaviour
 {
     public static readonly Dictionary<string, List<GameObject>> IdMap = new Dictionary<string, List<GameObject>>();
 
-    [SerializeField]
+    [SerializeField, ShowAsReadOnly]
     public string Id = Guid.NewGuid().ToString();
 
     void Awake()

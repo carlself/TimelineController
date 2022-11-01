@@ -20,13 +20,11 @@ public class Test : MonoBehaviour
         yield return timelineHandle;
         var timelineObj = Instantiate(timelineHandle.Result);
         var timelineController = timelineObj.GetComponent<TimelineController>();
-        timelineController.Play(null);
-
+        timelineController.Play(()=>Debug.Log("TimelineController Complete"));
     }
 
     private void OnDestroy()
     {
-
         Addressables.Release(timelineHandle);
         Addressables.Release(sphereHandle);
     }
