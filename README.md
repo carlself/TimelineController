@@ -29,7 +29,7 @@ The `TimelineController` component saves all the runtime bindings automatically 
 
 6. Repeat 3-5 for more timelines
 
-7. In runtime, make sure the dependent GameObject exist in memory before playing timeline.
+7. In runtime, make sure the dependent GameObjects exist in memory before playing timeline.
 
 ```C#
  // Load dependent GameObjects
