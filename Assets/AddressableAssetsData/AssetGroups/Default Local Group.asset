@@ -22,11 +22,15 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: a3f46bee2cb02402badf52e5ddd0f8f5
-    m_Address: Assets/Example/Sphere.prefab
+    m_Address: Assets/Example/Prefabs/Sphere.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 7d8e7acafb3b2481596b0f46436fbdb7
-    m_Address: Assets/Example/Timeline/Timeline.playable
+  - m_GUID: 9a75106c7212d4093bd7471dc374c636
+    m_Address: Assets/Example/Prefabs/Cube.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1433d530c97834b549622814d5888157
+    m_Address: Assets/Example/Prefabs/ChildTimeline.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

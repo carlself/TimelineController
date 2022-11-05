@@ -2,8 +2,6 @@
 using UnityEditor;
 
 
-namespace Z1Client
-{
     [CustomEditor(typeof(TimelineController))]
     public class TimelineControllerEditor : Editor
     {
@@ -49,4 +47,3 @@ namespace Z1Client
                 base.OnInspectorGUI();
         }
     }
-}

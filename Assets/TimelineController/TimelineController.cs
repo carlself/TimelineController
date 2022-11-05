@@ -81,36 +81,8 @@ public class TimelineController : MonoBehaviour
         {
             playableDirector = GetComponent<PlayableDirector>();
             InstallRuntimeBindings();
-            //playableDirector.RebuildGraph();
-            //playableDirector.playOnAwake = false;
         }
     }
-
-    //public TimelineAsset GetNestedTimelineAsset(TrackAsset trackAsset, int trackIndex, out float clipStartTime)
-    //{
-    //    foreach (var entry in nestedTimelineBindings)
-    //    {
-    //        if (entry.trackIndex == trackIndex)
-    //        {
-    //            int clipIndex = -1;
-    //            TimelineClip nestTimelineClip = null;
-    //            foreach (var clip in trackAsset.GetClips())
-    //            {
-    //                clipIndex++;
-    //                if (clipIndex == entry.clipIndex)
-    //                {
-    //                    nestTimelineClip = clip;
-    //                    break;
-    //                }
-    //            }
-
-    //            clipStartTime = (float)nestTimelineClip.start;
-    //            return entry.timelineAsset as TimelineAsset;
-    //        }
-    //    }
-    //    clipStartTime = 0;
-    //    return null;
-    //}
 #endif
 
     void OnEnable()
@@ -363,7 +335,7 @@ public class TimelineController : MonoBehaviour
 
         if (binding.trackIndex >= timelineAsset.outputTrackCount)
         {
-            Debug.LogWarningFormat("{0}trackIndex {1}出界", timelineAsset.ToString(), binding.trackIndex);
+            Debug.LogWarningFormat("trackIndex out of bounds:{0}, {1}", timelineAsset.ToString(), binding.trackIndex);
             return false;
         }
         TrackAsset trackAsset = timelineAsset.GetOutputTrack(binding.trackIndex);
@@ -388,7 +360,7 @@ public class TimelineController : MonoBehaviour
 
         if (bindTarget == null)
         {
-            Debug.LogWarningFormat("{0} 绑定轨道{1}失败 找不到绑定对象{2}", timelineAsset.ToString(), trackAsset.ToString(), binding.id);
+            Debug.LogWarningFormat("Bind failed, didn't find bind object: {0}, {1}, {2}", timelineAsset.ToString(), trackAsset.ToString(), binding.id);
             return false;
         }
 
@@ -434,7 +406,7 @@ public class TimelineController : MonoBehaviour
             int clipIndex = -1;
             if (entry.trackIndex >= timelineAsset.outputTrackCount)
             {
-                Debug.LogWarningFormat("{0}trackIndex {1}出界", timelineAsset.ToString(), entry.trackIndex);
+                Debug.LogWarningFormat("trackIndex out of bounds: {0}, {1}", timelineAsset.ToString(), entry.trackIndex);
                 continue;
             }
             TrackAsset trackAsset = timelineAsset.GetOutputTrack(entry.trackIndex);
@@ -458,7 +430,7 @@ public class TimelineController : MonoBehaviour
             {
                 if (string.IsNullOrEmpty(binding.id))
                 {
-                    Debug.LogWarningFormat("绑定子timeline出错 id为空子timeline {0} 主timeline {1}",
+                    Debug.LogWarningFormat("Bind child timeline failed,empty id: {0}, {1}",
                         nestedPlayableDirector.playableAsset.ToString(), playableDirector.playableAsset.ToString());
                 }
                 else
@@ -467,7 +439,6 @@ public class TimelineController : MonoBehaviour
                 }
             }
             nestedPlayableDirector.RebuildGraph();
-            //nestedPlayableDirector.RebindPlayableGraphOutputs();
         }
     }
 }
